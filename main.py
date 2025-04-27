@@ -15,9 +15,9 @@ logging.getLogger("urllib3").setLevel(logging.WARNING)
 logger = logging.getLogger(__name__)
 logger.setLevel(logging.INFO)
 
-telefones = ["5561991713088", "5561981561420", "5561981155209", "5561991816002"]
+phones = ["5561991713088", "5561981561420", "5561981155209", "5561991816002"]
 
-mensagem = (
+message = (
     "Está difícil acompanhar os valores do seu cartão consignado? Posso te ajudar a organizar isso, mudando para um banco com parcelas fixas + previsibilidade e ainda com um novo cartão e dinheiro na conta, apenas clique no link: https://wa.me/message/XGZWEYOO3PUXA1 e será redirecionado para um de nossos correspondentes.."
 )
 
@@ -38,7 +38,7 @@ def main():
         logger.info("QR Code escaneado com sucesso!")
 
         # loop de envio
-        for numero in telefones:
+        for numero in phones:
             logger.info(f"Iniciando envio para {numero!r}")
 
             try:
@@ -93,7 +93,7 @@ def main():
                     time.sleep(2)
                     caixa_msg.click()
                     time.sleep(3)
-                    caixa_msg.send_keys(mensagem)
+                    caixa_msg.send_keys(message)
                     time.sleep(3)
                     caixa_msg.send_keys(Keys.ENTER)
                     logger.info(f"Mensagem enviada com sucesso para o número {numero}.")
